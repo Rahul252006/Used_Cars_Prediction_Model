@@ -128,6 +128,11 @@ Used-Car-Price-Category-Prediction/
 - API Integration
 
 ---
+## Dataset
+
+Due to GitHub's file size limitations, the cleaned dataset is not included in this repository.
+
+You can download the original dataset from Kaggle and run the notebook to reproduce the results.
 
 ## 📄 License
 
