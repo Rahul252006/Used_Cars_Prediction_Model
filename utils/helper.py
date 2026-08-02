@@ -24,13 +24,13 @@ except ImportError:
 
 
 @cache_resource
-def load_model_scaler_and_encoders_v2(
+def load_model_scaler_and_encoders_v3(
     model_path="random_forest.pkl",
     scaler_path="scaler.pkl",
     encoders_path="label_encoders.pkl"
 ):
     """
-    Loads pre-trained Random Forest model, StandardScaler, and fitted LabelEncoders (v2 cache cleared).
+    Loads pre-trained Random Forest model, StandardScaler, and fitted LabelEncoders (v3 cache purge forced).
     """
     if not os.path.exists(model_path):
         raise FileNotFoundError(f"Model file not found at {model_path}")
@@ -44,7 +44,7 @@ def load_model_scaler_and_encoders_v2(
 
 
 def load_model_scaler_and_encoders(model_path="random_forest.pkl", scaler_path="scaler.pkl", encoders_path="label_encoders.pkl"):
-    return load_model_scaler_and_encoders_v2(model_path, scaler_path, encoders_path)
+    return load_model_scaler_and_encoders_v3(model_path, scaler_path, encoders_path)
 
 
 def load_model_and_scaler(model_path="random_forest.pkl", scaler_path="scaler.pkl", encoders_path="label_encoders.pkl"):
