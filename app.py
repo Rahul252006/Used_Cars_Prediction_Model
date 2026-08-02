@@ -12,7 +12,7 @@ import pandas as pd
 from PIL import Image
 
 from utils.helper import (
-    load_model_scaler_and_encoders,
+    load_model_scaler_and_encoders_v2 as load_model_scaler_and_encoders,
     load_dataset,
     get_brand_model_mapping,
     get_brand_spec_defaults,
