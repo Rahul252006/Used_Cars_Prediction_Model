@@ -399,13 +399,17 @@ with tab_predict:
                     proba = rf_model.predict_proba(X_vector)[0]
                     confidence_pct = int(np.max(proba) * 100)
 
-                    category_names = {
-                        0: "Budget (Below 4 Lakhs)",
-                        1: "Luxury (15+ Lakhs)",
-                        2: "Mid-Range (4–8 Lakhs)",
-                        3: "Premium (8–15 Lakhs)"
-                    }
-                    pred_category = category_names.get(pred_idx, "Mid-Range (4–8 Lakhs)")
+                    target_le = label_encoders.get("__target__", None)
+                    if target_le and hasattr(target_le, "inverse_transform"):
+                        pred_category = str(target_le.inverse_transform([pred_idx])[0])
+                    else:
+                        category_names = {
+                            0: "Budget (Below 4 Lakhs)",
+                            1: "Luxury (15+ Lakhs)",
+                            2: "Mid-Range (4–8 Lakhs)",
+                            3: "Premium (8–15 Lakhs)"
+                        }
+                        pred_category = category_names.get(pred_idx, "Mid-Range (4–8 Lakhs)")
 
                     st.session_state["last_prediction"] = {
                         "category": pred_category,
