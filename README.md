@@ -1,131 +1,72 @@
-# 🚗 Used Car Price Category Prediction
+# 🚗 Used Car Price Category Prediction - Streamlit Web Application
 
-A machine learning project that classifies used cars into different price categories using vehicle specifications from the CarDekho dataset.
+A production-ready, portfolio-standard Streamlit web application built with a **Notion/Vercel/Linear-inspired minimal black-and-white design system**. The app predicts used vehicle price categories using a pre-trained **Random Forest Classifier** (83.87% accuracy) trained on the CarDekho dataset.
 
----
-
-## 📌 Business Problem
-
-Used car dealerships handle thousands of vehicles with different specifications. Manually categorizing vehicles based on price is time-consuming and inconsistent.
-
-This project builds a machine learning classification model that automatically predicts the price category of a used car based on its features.
+Developer: **Rahul Simhadri**  
+Model Accuracy: **83.87%**
 
 ---
 
-## 🎯 Objective
+## 🌟 Key Application Features
 
-- Perform data cleaning and preprocessing on a real-world dataset.
-- Handle missing values and inconsistent data.
-- Perform Exploratory Data Analysis (EDA).
-- Engineer and prepare features for machine learning.
-- Train multiple classification models.
-- Compare model performance.
-- Identify the most important factors affecting vehicle price categories.
+- **Minimalist Monochrome UI**: Clean Notion/Linear design language with pure `#FFFFFF` background, `#111111` typography, 12px border radii, subtle thin grey borders, and smooth fade-in transitions.
+- **3-Tab Architecture**:
+  - `🎯 Predict`: Interactive prediction form, instant category output card with confidence score, and model metadata overview.
+  - `📈 Model Performance`: Comparative accuracy benchmarks table, monochrome Matplotlib visualizations (Feature Importance, Confusion Matrix, Model Comparison).
+  - `ℹ️ About Project`: Problem statement, CarDekho dataset overview, 8-step ML pipeline workflow, and technical stack details.
+- **Dynamic Brand & Model Filtering**: Interactive selection where choosing a vehicle Brand (OEM) automatically updates available Models.
+- **Real-Time Input Validation**: Checks for valid ranges on kilometers driven, engine CC, power, and torque.
+- **Single Centered Predict CTA**: Solid black button with loading spinner feedback.
 
 ---
 
-## 📂 Dataset
+## 📂 Folder Structure
 
-**Source:** CarDekho Used Cars Dataset
-
-- 13,577 Records
-- 140 Original Features
-- Real-world uncleaned automotive dataset
+```
+Car_Prediction_Model/
+│── app.py                              # Main Streamlit application (3-Tab structure)
+│── random_forest.pkl                   # Trained Random Forest classifier model
+│── scaler.pkl                          # Pre-fitted StandardScaler for numerical features
+│── label_encoders.pkl                  # Fitted LabelEncoder dictionary for categorical features
+│── cleaned_cars.csv                    # Processed dataset
+│── requirements.txt                    # Python dependencies
+│── README.md                           # Documentation & portfolio overview
+│── utils/
+│     ├── preprocessing.py              # Input validation, feature encoding & scaling logic
+│     ├── helper.py                     # Data loader, model cache & monochrome chart plotters
+```
 
 ---
 
 ## 🛠 Technologies Used
 
-- Python
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-- Scikit-learn
-- Joblib
+- **Python 3.10+**
+- **Streamlit** (Web Application Framework)
+- **Scikit-learn** (Random Forest Classifier & StandardScaler)
+- **Pandas & NumPy** (Data Preprocessing & Manipulation)
+- **Matplotlib & Seaborn** (Monochrome Data Visualizations)
+- **Joblib** (Model Serialization & Deserialization)
 
 ---
 
-## 📊 Data Preprocessing
+## ⚡ Quick Start & Running Locally
 
-- Removed duplicate and metadata columns
-- Handled missing values
-- Converted text-based numerical columns
-- Created target variable (Price Category)
-- Encoded categorical features
-- Standardized numerical features
-
----
-
-## 📈 Exploratory Data Analysis
-
-Performed:
-
-- Dataset Profiling
-- Missing Value Analysis
-- Feature Importance Analysis
-- Correlation Analysis
-- Distribution Analysis
-- Category-wise Analysis
-
----
-
-## 🤖 Machine Learning Models
-
-- Logistic Regression
-- Decision Tree Classifier
-- Random Forest Classifier
-
----
-
-## 📌 Model Performance
-
-| Model | Accuracy |
-|--------|---------:|
-| Random Forest | **83.87%** |
-| Decision Tree | **79.79%** |
-| Logistic Regression | **75.63%** |
-
----
-
-## 📊 Feature Importance
-
-Top features influencing the prediction include:
-
-- Model Year
-- Maximum Power
-- Alloy Wheel Size
-- Width
-- Kilometers Driven
-- Gear Box
-- Wheel Base
-- Maximum Torque
-
----
-
-## 📁 Project Structure
-
-```
-Used-Car-Price-Category-Prediction/
-│
-├── Used_Car_Price_Category_Prediction.ipynb
-├── cleaned_cars.csv
-├── random_forest.pkl
-├── scaler.pkl
-├── requirements.txt
-├── README.md
-└── screenshots/
+### 1. Open Workspace
+```bash
+cd Car_Prediction_Model
 ```
 
----
+### 2. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
-## 🚀 Future Improvements
+### 3. Launch Application
+```bash
+streamlit run app.py
+```
 
-- Hyperparameter Tuning
-- Streamlit Web Application
-- Model Deployment
-- Feature Selection Optimization
-- API Integration
+The application will launch at `http://localhost:8501`.
 
 ---
 ## Dataset
@@ -134,6 +75,26 @@ Due to GitHub's file size limitations, the cleaned dataset is not included in th
 
 You can download the original dataset from Kaggle and run the notebook to reproduce the results.
 
-## 📄 License
+## ☁️ Deployment to Streamlit Community Cloud
 
-This project is created for educational purposes and portfolio demonstration.
+1. Push this repository to **GitHub**.
+2. Visit [Streamlit Community Cloud](https://streamlit.io/cloud).
+3. Click **New app** and select your GitHub repository `Car_Prediction_Model`.
+4. Set Main file path to `app.py`.
+5. Click **Deploy!**
+
+---
+
+## 📊 Model Evaluation Summary
+
+| Model | Accuracy Score | Status |
+|---|:---:|:---:|
+| **Random Forest Classifier** | **83.87%** | **🏆 Best Model** |
+| Decision Tree Classifier | 79.79% | Benchmark |
+| Logistic Regression | 75.63% | Baseline |
+
+---
+
+## 📄 Attribution
+
+Developed by **Rahul Simhadri**. Built for portfolio demonstration and deployment on Streamlit Community Cloud. Dataset sourced from CarDekho.
